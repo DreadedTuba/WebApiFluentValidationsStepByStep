@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.WebApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -22,6 +23,8 @@ namespace WebApp
             );
 
             config.Filters.Add(new ValidateFilterAttribute());
+
+            FluentValidationModelValidatorProvider.Configure(config);
         }
     }
 }
