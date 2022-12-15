@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using WebApp.Filters;
 
 namespace WebApp
 {
@@ -19,6 +20,8 @@ namespace WebApp
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Filters.Add(new ValidateFilterAttribute());
         }
     }
 }
