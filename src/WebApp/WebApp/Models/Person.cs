@@ -8,7 +8,6 @@ using WebApp.Validators;
 
 namespace WebApp.Models
 {
-    [Validator(typeof(PersonValidator))]
     public class Person
     {
         public string Name { get; set; }
