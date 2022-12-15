@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using StructureMap.Configuration.DSL;
+using System.Reflection;
 using WebApp.Models;
 using WebApp.Validators;
 
@@ -9,9 +10,13 @@ namespace WebApp.DependencyResolution.Validation
     {
         public ValidationRegistry()
         {
-            For<IValidator<Person>>()
-                .Singleton()
-                .Use<PersonValidator>();
+            AssemblyScanner.FindValidatorsInAssembly(Assembly.GetExecutingAssembly())
+                .ForEach(result =>
+                {
+                    For(result.InterfaceType)
+                        .Singleton() // why?
+                        .Use(result.ValidatorType);
+                });
         }
     }
 }
