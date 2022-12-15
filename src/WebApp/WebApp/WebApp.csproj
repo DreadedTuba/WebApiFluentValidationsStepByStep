@@ -194,6 +194,7 @@
     <Compile Include="DependencyResolution\StructureMapWebApiDependencyResolver.cs" />
     <Compile Include="DependencyResolution\StructureMapWebApiDependencyScope.cs" />
     <Compile Include="DependencyResolution\Validation\MyValidatorFactory.cs" />
+    <Compile Include="DependencyResolution\Validation\ValidationRegistry.cs" />
     <Compile Include="Filters\ValidateFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

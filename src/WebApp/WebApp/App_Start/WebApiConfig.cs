@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using WebApp.Filters;
+using WebApp.DependencyResolution.Validation;
 
 namespace WebApp
 {
@@ -24,7 +25,10 @@ namespace WebApp
 
             config.Filters.Add(new ValidateFilterAttribute());
 
-            FluentValidationModelValidatorProvider.Configure(config);
+            FluentValidationModelValidatorProvider.Configure(config, cfg =>
+                {
+                    cfg.ValidatorFactory = new MyValidatorFactory();
+                });
         }
     }
 }

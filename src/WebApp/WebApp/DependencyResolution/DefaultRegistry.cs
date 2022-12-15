@@ -27,6 +27,7 @@ namespace WebApp.DependencyResolution {
                 scan => {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
+                    scan.LookForRegistries();
                 });
             //For<IExample>().Use<Example>();
         }
